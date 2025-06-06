@@ -1,0 +1,16 @@
+### ทดสอบการดึงข้อมูลการเช่ายืมทั้งหมด
+GET http://localhost:9090/games
+
+### ทดสอบการดึงข้อมูลบอร์ดเกมทั้งหมด
+GET http://localhost:8080/rentals
+
+### ทดสอบการสร้างการเช่ายืมใหม่
+POST http://localhost:8080/rentals
+Content-Type: application/json
+
+{
+  "gameId": 3,
+  "customerName": "Jane Doe",
+  "rentalDate": "2025-05-01",
+  "returnDate": "2025-05-08"
+}
