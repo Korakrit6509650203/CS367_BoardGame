@@ -1,0 +1,101 @@
+/* ฟอนต์และการตั้งค่าทั่วไป */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.rental-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.rental-button:hover {
+  background-color: #0056b3;
+}
+
+/* ตกแต่งรายการเกม */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+/* สำหรับหน้า Rental List */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card p {
+  margin: 6px 0;
+}
+
+/* ปุ่ม back */
+a.rental-button.back {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.btn-find {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #ff5722;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-find:hover {
+  background-color: #ff5722;
+}
+
