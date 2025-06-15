@@ -77,6 +77,10 @@ jobs:
           --resource-group ton-v1 \
           --plan ton-app-plan \
           --name rental-boardgame \
+          
+        az webapp config container set \
+          --name rental-boardgame \
+          --resource-group ton-v1 \
           --docker-registry-server-url https://${{ secrets.AZURE_REGISTRY_URL }} \
           --docker-registry-server-user ${{ secrets.AZURE_ACR_USERNAME }} \
           --docker-registry-server-password ${{ secrets.AZURE_ACR_PASSWORD }} \
