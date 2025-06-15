@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:8081"; // Base API URL
+const API_URL = window.location.origin;
+console.log("API_URL " + API_URL)
+// const API_URL = "http://localhost:8081"; // Base API URL
 
 // Initialize the page
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,7 +34,7 @@ function initializePage() {
     // Back button functionality
     const backButton = document.getElementById("backButton");
     backButton.addEventListener("click", () => {
-        window.location.href = "index.html";
+        window.location.href = `${API_URL}/`;
     });
 
     const confirmPaymentButton = document.getElementById("confirmPayment");

@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:8081";
+const API_URL = window.location.origin;
+console.log("API_URL " + API_URL)
+// const API_URL = "http://localhost:8081";
 
 //////////////////// Utility Functions ////////////////////
 const fetchAPI = async (url, options = {}) => {
@@ -51,7 +53,7 @@ const loadGames = async () => {
           <p>Difficulty: ${game.difficultyLevel}</p>
           <p>Playtime: ${game.playingTime}</p>
           <p class="stock">Stock: ${game.stock}</p>
-          <button id="rentGameButton" onclick="window.location.href = '${API_URL}/rent.html?gameId=${game.gameId}'";>📦 Rental</button>
+          <button id="rentGameButton" onclick="window.location.href = '/rent.html?gameId=${game.gameId}'";>📦 Rental</button>
           <button class="edit-btn" onclick="editGame(${game.gameId})">✏️ Edit</button>
           <button class="delete-btn" onclick="deleteGame(${game.gameId})">🗑️ Delete</button>
         </div>
