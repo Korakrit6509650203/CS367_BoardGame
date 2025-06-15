@@ -70,6 +70,8 @@ jobs:
     
     - name: Configure Web App Container
       run: |
+        az webapp show --name rental-boardgame --resource-group ton-v1
+        
         az webapp config container set \
           --name rental-boardgame \
           --resource-group ton-v1 \
