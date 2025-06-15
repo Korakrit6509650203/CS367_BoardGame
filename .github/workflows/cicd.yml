@@ -30,10 +30,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rental_boardgame:latest -f Dockerfile .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest -f Dockerfile .
 
     - name: Push Docker Image to Docker Hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/rental_boardgame:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest
 
   CD:
     name: CD - Deploy to MS Azure with Docker
@@ -49,9 +49,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Pull Docker Image from Docker Hub
-      run: az acr import --name tonkungarc --source docker.io/${{ secrets.DOCKER_USERNAME }}/rental_boardgame:latest --image rental_boardgame:latest
+      run: az acr import --name tonkungarc --source docker.io/${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest --image rental-boardgame:latest
 
     - name: Deploy to Azure Web App
       run: |
         az webapp create --name rental-boardgame --resource-group ton-v1 --plan ton-app-plan
-        az webapp config container set --name rental-boardgame --resource-group ton-v1 --docker-custom-image-name tonkungarc.azurecr.io/rental_boardgame:latest
+        az webapp config container set --name rental-boardgame --resource-group ton-v1 --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest
