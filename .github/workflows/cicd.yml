@@ -50,7 +50,6 @@ jobs:
 
     - name: Pull Docker Image from Docker Hub
       run: 
-        az acr repository delete --name tonkungarc --image rental-boardgame:latest --yes &&
         az acr import --name tonkungarc --source docker.io/${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest --image rental-boardgame:latest
 
     - name: Clean up existing Web App
