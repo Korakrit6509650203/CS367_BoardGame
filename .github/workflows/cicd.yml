@@ -77,4 +77,5 @@ jobs:
           --resource-group ton-v1 \
           --plan ton-app-plan \
           --name rental-boardgame \
+          --deployment-container-image-name tonkungarc.azurecr.io/rental-boardgame:latest \
           
