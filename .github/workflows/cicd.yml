@@ -53,11 +53,23 @@ jobs:
         az acr repository delete --name tonkungarc --image rental-boardgame:latest --yes &&
         az acr import --name tonkungarc --source docker.io/${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest --image rental-boardgame:latest
 
+    - name: Create Azure App Service Plan
+      run: |
+        az appservice plan create \
+          --name ton-app-plan \
+          --resource-group ton-v1 \
+          --sku B1 \
+          --is-linux
+
     - name: Deploy to Azure Web App
       run: |
         az webapp create --name rental-boardgame --resource-group ton-v1 --plan ton-app-plan
+        az webapp show --name rental-boardgame --resource-group ton-v1
+        az webapp config container delete --name rental-boardgame --resource-group ton-v1
         az webapp config container set \
-        --name rental-boardgame \
-        --resource-group ton-v1 \
-        --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest \
-        --enable-container-logging true
+          --name rental-boardgame \
+          --resource-group ton-v1 \
+          --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest \
+          --enable-container-logging true
+
+
