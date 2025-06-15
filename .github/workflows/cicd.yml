@@ -36,7 +36,7 @@ jobs:
       run: docker push ${{ secrets.DOCKER_USERNAME }}/rental_boardgame:latest
 
   CD:
-    name: CD - Deploy to EC2 with Docker
+    name: CD - Deploy to MS Azure with Docker
     runs-on: ubuntu-latest
 
     needs:
@@ -53,5 +53,5 @@ jobs:
 
     - name: Deploy to Azure Web App
       run: |
-        az webapp create --name rental_boardgame --resource-group ton-v1 --plan ton-app-plan
-        az webapp config container set --name rental_boardgame --resource-group ton-v1 --docker-custom-image-name tonkungarc.azurecr.io/rental_boardgame:latest
+        az webapp create --name rental-boardgame --resource-group ton-v1 --plan ton-app-plan
+        az webapp config container set --name rental-boardgame --resource-group ton-v1 --docker-custom-image-name tonkungarc.azurecr.io/rental_boardgame:latest
