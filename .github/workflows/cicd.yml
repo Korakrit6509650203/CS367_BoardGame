@@ -50,6 +50,7 @@ jobs:
 
     - name: Pull Docker Image from Docker Hub
       run: 
+        az acr repository delete --name tonkungarc --image rental-boardgame:latest --yes &&
         az acr import --name tonkungarc --source docker.io/${{ secrets.DOCKER_USERNAME }}/rental-boardgame:latest --image rental-boardgame:latest
 
     - name: Clean up existing Web App
@@ -64,10 +65,21 @@ jobs:
           --sku B1 \
           --is-linux
 
-    - name: Deploy to Azure Web App
+    - name: Delete Container
       run: |
-        az webapp create --name rental-boardgame --resource-group ton-v1 --plan ton-app-plan &&
-        az webapp config container delete --name rental-boardgame --resource-group ton-v1 &&
+        az webapp config container delete \
+          --name rental-boardgame \
+          --resource-group ton-v1 || true
+
+    - name: Create Azure Web App
+      run: |
+        az webapp create \
+          --name rental-boardgame \
+          --resource-group ton-v1 \
+          --plan ton-app-plan
+    
+    - name: Config Container
+      run: |
         az webapp config container set \
           --name rental-boardgame \
           --resource-group ton-v1 \
