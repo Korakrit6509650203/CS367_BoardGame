@@ -51,7 +51,7 @@ const loadGames = async () => {
           <p>Difficulty: ${game.difficultyLevel}</p>
           <p>Playtime: ${game.playingTime}</p>
           <p class="stock">Stock: ${game.stock}</p>
-          <button onclick="window.location.href = '${API_URL}/rent.html'">📦 Rental</button>
+          <button id="rentGameButton" onclick="window.location.href = '${API_URL}/rent.html?gameId=${game.gameId}'";>📦 Rental</button>
           <button class="edit-btn" onclick="editGame(${game.gameId})">✏️ Edit</button>
           <button class="delete-btn" onclick="deleteGame(${game.gameId})">🗑️ Delete</button>
         </div>
@@ -134,6 +134,7 @@ async function submitEditGame(e, gameId) {
 
     alert("Game updated successfully!");
     hidePopupAddgame();
+    // deleteGame(gameId);
     loadGames();
 
   } catch (error) {
@@ -204,7 +205,7 @@ const uploadToAzureBlob = async (file) => {
   const containerName = "imageserver";
   const blobName = `${file.name}-${Date.now()}`;
   const domainBlob = "https://webappstorage555.blob.core.windows.net";
-  const sasToken = "sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2025-06-15T03:56:07Z&st=2025-06-12T19:56:07Z&spr=https&sig=I9H%2FQlS6NaNIUnrTwKRGIu238if2dA8WI8TJAV38dkg%3D";
+  const sasToken = "sv=2024-11-04&ss=bfqt&srt=co&sp=rwdlacupiytfx&se=2025-06-17T15:55:24Z&st=2025-06-15T07:55:24Z&spr=https&sig=5Bg1PL7nm3LU%2FFrmEgMOL9b%2B469qCfyuzntNolvuciE%3D";
   const blobUrl = `${domainBlob}/${containerName}/${blobName}?${sasToken}`;
 
   const res = await fetch(blobUrl, {

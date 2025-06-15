@@ -87,6 +87,20 @@ public class BoardgameController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Game not found: " + gameName);
         }
     }
+
+    // PATCH: Increase stock for a board game
+    @PatchMapping("/increase-stock/{gameName}")
+    public ResponseEntity<?> increaseStock(@PathVariable String gameName) {
+        Optional<Boardgame> boardgame = boardgameService.findByNameBoardGame(gameName);
+        if (boardgame.isPresent()) {
+            Boardgame game = boardgame.get();
+            game.setStock(game.getStock() + 1); // เพิ่มสต๊อก
+            boardgameService.createBoardGame(game); // บันทึกการเปลี่ยนแปลง
+            return ResponseEntity.ok("Stock increased successfully for game: " + gameName);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Game not found: " + gameName);
+        }
+    }
 }
 
 

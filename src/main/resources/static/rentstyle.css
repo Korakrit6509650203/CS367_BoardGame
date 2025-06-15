@@ -17,6 +17,7 @@ header {
 
 header h1 {
   margin: 0;
+  font-size: 1.8em;
 }
 
 .rental-button {
@@ -29,11 +30,12 @@ header h1 {
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .rental-button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
 /* ตกแต่งรายการเกม */
@@ -45,32 +47,78 @@ header h1 {
 }
 
 .card {
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
   margin-top: 0;
+  margin-bottom: 8px;
   color: #007bff;
+  font-size: 1.2em;
+}
+
+.container p {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #555;
+}
+
+.container p strong {
+  color: #333;
+  font-weight: bold;
+}
+
+
+.card button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+  background-color: #0d8bf2;
+  transform: translateY(-2px);
 }
 
 /* สำหรับหน้า Rental List */
 .container {
   max-width: 800px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .container h2 {
   text-align: center;
+  font-size: 1.8em;
+  color: #007bff;
   margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+#gameImage {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card p {
@@ -83,6 +131,7 @@ a.rental-button.back {
   display: inline-block;
 }
 
+/* ปุ่มค้นหา */
 .btn-find {
   display: inline-block;
   margin-top: 10px;
@@ -92,10 +141,56 @@ a.rental-button.back {
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-find:hover {
-  background-color: #ff5722;
+  background-color: #e64a19;
+  transform: translateY(-2px);
 }
 
+.game-details {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.game-details img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 15px;
+  border-radius: 8px;
+}
+.game-details h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.game-details p {
+  margin: 5px 0;
+}
+.game-details .field-label {
+  font-weight: bold;
+}
+
+#backButtonContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#backButton {
+    background-color: #007bff; /* สีน้ำเงิน */
+    color: #ffffff;           /* สีข้อความขาว */
+    border: none;             /* ไม่มีขอบ */
+    padding: 10px 15px;       /* ระยะห่างภายในปุ่ม */
+    border-radius: 5px;       /* มุมมน */
+    font-size: 16px;          /* ขนาดตัวอักษร */
+    cursor: pointer;          /* เปลี่ยน cursor เป็นแบบ pointer */
+}
+
+#backButton:hover {
+    background-color: #0056b3; /* สีน้ำเงินเข้มขึ้นเมื่อ hover */
+}

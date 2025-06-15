@@ -25,8 +25,8 @@ public class Rental {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "game_id", insertable = false, updatable = false)
-    private Long gameId;
+    // @Column(name = "game_id", insertable = false, updatable = false)
+    // private Long gameId;
 
     private String gameName;
     private String tenantName;
@@ -64,13 +64,13 @@ public class Rental {
         this.id = id;
     }
 
-    public Long getGameId() {
-        return gameId;
-    }
+    // public Long getGameId() {
+    //     return gameId;
+    // }
 
-    public void setGameId(Long gameId) {
-        this.gameId = gameId;
-    }
+    // public void setGameId(Long gameId) {
+    //     this.gameId = gameId;
+    // }
 
     public String getGameName() {
         return gameName;
@@ -164,7 +164,7 @@ public class Rental {
     public String toString() {
         return "DetailedRental{" +
                 "rentalId=" + id +
-                ", gameId=" + gameId +
+                // ", gameId=" + gameId +
                 ", gameName=" + gameName +
                 ", boardGame='" + game + '\'' +
                 ", tenantName='" + tenantName + '\'' +

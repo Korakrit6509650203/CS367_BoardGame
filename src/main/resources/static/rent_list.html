@@ -9,26 +9,10 @@
   <div class="container">
     <h2>📋 Rental List</h2>
     <div id="rentalDetails"></div>
-    <a href="http://localhost:8081" class="rental-button">⬅ Back to Shop</a>
+    <a href="/" class="rental-button">⬅ Back to Shop</a>
   </div>
 
-  <script>
-    window.onload = function () {
-      fetch("http://localhost:8081/rentals")
-        .then((res) => res.json())
-        .then((data) => {
-          const rentalDetails = document.getElementById("rentalDetails");
-          rentalDetails.innerHTML = data.map(rental => `
-            <div class="card">
-              <h3>${rental.gameName}</h3>
-              <p>Tenant: ${rental.tenantName}</p>
-              <p>Rental Period: ${rental.rentalPeriod}</p>
-              <p>Due: ${rental.returnDueDate}</p>
-              <p>Price: ${rental.rentalPrice}฿</p>
-            </div>
-          `).join("");
-        });
-    }
-  </script>
+  <script src="list.js"></script>
+  
 </body>
 </html>
