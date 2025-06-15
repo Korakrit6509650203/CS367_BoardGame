@@ -55,6 +55,7 @@ jobs:
 
     - name: Deploy to Azure Web App
       run: |
+        az webapp config container delete --name rental-boardgame --resource-group ton-v1
         az webapp create --name rental-boardgame --resource-group ton-v1 --plan ton-app-plan
         az webapp config container set \
         --name rental-boardgame \
