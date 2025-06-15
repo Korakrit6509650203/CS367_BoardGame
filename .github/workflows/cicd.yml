@@ -74,7 +74,7 @@ jobs:
           --resource-group ton-v1 \
           --plan ton-app-plan \
           --name rental-boardgame \
-          --docker-registry-server-url https://tonkungarc.azurecr.io \
-          --docker-registry-server-user tonkungarc.azurecr.io \
-          --docker-registry-server-password hNycdW15u97aVfqpL5Tq+j2HatNf6/ktHPKdFm3bI/+ACRCUuBhV \
-          --deployment-container-image-name tonkungarc.azurecr.io/rental-boardgame:latest
+          --docker-registry-server-url https://${{ secrets.AZURE_REGISTRY_URL }} \
+          --docker-registry-server-user ${{ secrets.AZURE_REGISTRY_USER }} \
+          --docker-registry-server-password ${{ secrets.AZURE_REGISTRY_PASSWORD }} \
+          --deployment-container-image-name ${{ secrets.AZURE_REGISTRY_URL }}/rental-boardgame:latest
