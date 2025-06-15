@@ -80,4 +80,4 @@ jobs:
           --docker-registry-server-url https://${{ secrets.AZURE_REGISTRY_URL }} \
           --docker-registry-server-user ${{ secrets.AZURE_ACR_USERNAME }} \
           --docker-registry-server-password ${{ secrets.AZURE_ACR_PASSWORD }} \
-          --image ${{ secrets.AZURE_REGISTRY_URL }}/rental-boardgame:latest
+          --deployment-container-image-name ${{ secrets.AZURE_REGISTRY_URL }}/rental-boardgame:latest
