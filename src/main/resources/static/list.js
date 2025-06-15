@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:8081";
+const API_URL = window.location.origin;
+console.log("API_URL " + API_URL)
 
 document.addEventListener("DOMContentLoaded", () => {
     loadRentals();
