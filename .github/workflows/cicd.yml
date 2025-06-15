@@ -67,9 +67,6 @@ jobs:
           --resource-group ton-v1 \
           --sku B1 \
           --is-linux
-    
-    - name: Docker Login
-      run: docker login tonkungarc.azurecr.io -u ${{ secrets.AZURE_ACR_USERNAME }} -p ${{ secrets.AZURE_ACR_PASSWORD }}
 
     - name: Configure Web App Container
       run: |
