@@ -72,7 +72,7 @@ jobs:
         az webapp config container set \
           --name rental-boardgame \
           --resource-group ton-v1 \
-          --docker tonkungarc.azurecr.io/rental-boardgame:latest \
+          --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest \
           --enable-container-logging true
 
 
