@@ -68,15 +68,14 @@ jobs:
           --sku B1 \
           --is-linux
     
-    - name: Create Azure Web App
+    - name: Configure Web App Container
       run: |
         az webapp config container set \
           --name rental-boardgame \
           --resource-group ton-v1 \
-          --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest \
-          --enable-container-logging true &&
+          --docker-custom-image-name tonkungarc.azurecr.io/rental-boardgame:latest
 
-        az webapp create \
+        az webapp log config \
           --name rental-boardgame \
           --resource-group ton-v1 \
-          --plan ton-app-plan
+          --docker-container-logging filesystem
