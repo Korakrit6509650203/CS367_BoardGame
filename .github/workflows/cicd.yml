@@ -74,5 +74,4 @@ jobs:
           --resource-group ton-v1 \
           --plan ton-app-plan \
           --name rental-boardgame \
-          --docker-registry-server-url https://${{ secrets.AZURE_REGISTRY_URL }} \
           --deployment-container-image-name ${{ secrets.AZURE_REGISTRY_URL }}/rental-boardgame:latest
